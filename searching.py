@@ -24,9 +24,24 @@ def read_data(file_name, field):
 
     return sequentional_data
 
-def linear_search():
+def linear_search(seq, number):
+    """
+    :param seq:
+    :param number:
+    :return:
+    """
+    indices = []
+    count = 0
+    idx =0
+    while idx < len(seq):
+        if seq[idx] == number:
+            indices.append(idx)
+            count += 1
+        idx += 1
+    return {"positions": indices, "count": count}
 
-
+def patter_search(seq, patt):
+    ...
 
 def main():
     file_name = "sequential.json"
