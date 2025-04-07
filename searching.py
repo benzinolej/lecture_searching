@@ -56,20 +56,27 @@ def pattern_search(seq, patt):
 
         return indices
 
-def binary_search(indices, number):
+def binary_search(ordered_list, number):
+    left, right = (0, len(seq) - 1)
+    while left <= right:
+        middle = (right + left) // 2
+
+        if number < seq[middle]:
+            right = middle - 1
+        elif number > seq[middle]:
+            left = middle + 1
+        else:
+            return middle
 
 
 def main():
     file_name = "sequential.json"
     #raed data
     seq = read_data(file_name, field="unordered_numbers")
-    print(seq)
 
     result = linear_search(seq, number=0)
-    print(result)
 
     seq = pattern_search(file_name, field= "one_sequence")
-    print(seq)
 
 if __name__ == '__main__':
     main()
