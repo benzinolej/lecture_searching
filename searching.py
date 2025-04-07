@@ -40,13 +40,35 @@ def linear_search(seq, number):
         idx += 1
     return {"positions": indices, "count": count}
 
-def patter_search(seq, patt):
-    ...
+def pattern_search(seq, patt):
+    patt_size = len(patt)
+    f_idx = 0
+    s_idx = patt_size
+
+    while s_idx < len(seq):
+        for idx in range(patt_size):
+            if pattern[idx] != seq[f_idx + idx]:
+                break
+        else:
+            indices.add(f_idx + patt_size // 2)
+        f_idx += 1
+        s_idx += 1
+
+        return indices
+
+def binary_search(indices, number):
+
 
 def main():
     file_name = "sequential.json"
     #raed data
     seq = read_data(file_name, field="unordered_numbers")
+    print(seq)
+
+    result = linear_search(seq, number=0)
+    print(result)
+
+    seq = pattern_search(file_name, field= "one_sequence")
     print(seq)
 
 if __name__ == '__main__':
